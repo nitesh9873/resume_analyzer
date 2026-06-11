@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ATS Resume Analyzer</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="container">
+
+<header>
+    <h1>ATS Resume Analyzer</h1>
+    <p>
+        Upload your resume and evaluate how well it matches
+        your target job role.
+    </p>
+</header>
+
+<div class="main-card">
+
+    <div class="form-section">
+
+        <label>Select Target Designation</label>
+
+        <select id="role">
+
+            <option value="software engineer">
+                Software Engineer
+            </option>
+
+            <option value="web developer">
+                Web Developer
+            </option>
+
+            <option value="frontend developer">
+                Frontend Developer
+            </option>
+
+            <option value="backend developer">
+                Backend Developer
+            </option>
+
+            <option value="full stack developer">
+                Full Stack Developer
+            </option>
+
+            <option value="data analyst">
+                Data Analyst
+            </option>
+
+            <option value="data scientist">
+                Data Scientist
+            </option>
+
+            <option value="machine learning engineer">
+                Machine Learning Engineer
+            </option>
+
+            <option value="devops engineer">
+                DevOps Engineer
+            </option>
+
+            <option value="cyber security analyst">
+                Cyber Security Analyst
+            </option>
+
+        </select>
+
+        <label>Upload Resume (.txt)</label>
+
+        <div class="upload-box">
+
+            <input
+                type="file"
+                id="resumeFile"
+                accept=".txt">
+
+            <p>
+                Choose a TXT Resume File
+            </p>
+
+        </div>
+
+        <button onclick="analyzeResume()">
+            Analyze Resume
+        </button>
+
+    </div>
+
+</div>
+
+<div id="resultSection" class="result-section hidden">
+
+    <div class="score-card">
+
+        <h2>ATS Score</h2>
+
+        <div class="score-circle">
+            <span id="scoreValue">0%</span>
+        </div>
+
+        <div id="strength" class="strength">
+            Resume Strength
+        </div>
+
+    </div>
+
+    <div class="progress-card">
+
+        <h3>Match Percentage</h3>
+
+        <div class="progress-bar">
+            <div
+                id="progressFill"
+                class="progress-fill">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="cards-grid">
+
+        <div class="info-card">
+
+            <h3>Matched Skills</h3>
+
+            <ul id="matchedSkills"></ul>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>Missing Skills</h3>
+
+            <ul id="missingSkills"></ul>
+
+        </div>
+
+    </div>
+
+    <div class="cards-grid">
+
+        <div class="info-card">
+
+            <h3>Contact Information</h3>
+
+            <ul id="contactCheck"></ul>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>Resume Sections</h3>
+
+            <ul id="sectionCheck"></ul>
+
+        </div>
+
+    </div>
+
+    <div class="cards-grid">
+
+        <div class="info-card">
+
+            <h3>Resume Statistics</h3>
+
+            <ul id="resumeStats"></ul>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>Hiring Recommendation</h3>
+
+            <div
+                id="recommendation"
+                style="
+                font-size:22px;
+                font-weight:bold;
+                margin-top:10px;">
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="cards-grid">
+
+        <div class="info-card">
+
+            <h3>Strengths</h3>
+
+            <ul id="strengthList"></ul>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>Areas To Improve</h3>
+
+            <ul id="weaknessList"></ul>
+
+        </div>
+
+    </div>
+
+    <div class="feedback-card">
+
+        <h3>Recruiter Feedback</h3>
+
+        <p id="feedbackText"></p>
+
+    </div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
